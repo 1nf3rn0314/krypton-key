@@ -1,0 +1,39 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'CircularStd';
+  src: url('/CircularStd-Medium.woff2');
+}
+
+* {
+  font-family: 'CircularStd';
+  color: white;
+}
+
+a {
+  color: rgb(100, 159, 228);
+}
+
+@layer components {
+  .input-field {
+    @apply outline-none border-1 rounded-xl m-2 h-10 px-3 py-5 text-lg;
+  }
+  .input-field:hover {
+    @apply border-[#2790d6]
+  }
+  .input-field:focus {
+    @apply border-[#2790d6]
+  }
+  .action-btn {
+    @apply bg-[#2790d6] rounded-full hover:cursor-pointer flex items-center justify-center gap-1.5 hover:bg-[#279fd6] border-1 border-white px-3;
+  }
+  .row-action-btn {
+    @apply hover:cursor-pointer p-1 rounded-lg;
+  }
+  .row-action-btn:hover {
+    box-shadow: 0px 0px 20px #2790d6;
+    /* background-color: #082e80; */
+    background-color: #2790d6;
+    transition: all 0.3s;
+  }
+}
