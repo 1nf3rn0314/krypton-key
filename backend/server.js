@@ -50,5 +50,5 @@ app.patch('/', async (req, res) => {
 })
 
 app.listen(process.env.EXPRESS_PORT, () => {
-  console.log(`Example app listening on port ${process.env.EXPRESS_PORT}`)
+  console.log(`Listening on port ${process.env.EXPRESS_PORT}`)
 })
