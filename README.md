@@ -10,13 +10,10 @@
 
 # Deploying to production
 
-1. Install dependencies `npm i`
-2. Build frontend `npm run build`
-3. Start server `npm run preview`
-4. Change to backend directory `cd backend`
-5. Install backend dependencies `npm i`
-6. Start backend `node server.js`
-7. Visit http://localhost:4173
+1. Go to backend directory `cd backend`
+2. Install backend dependencies `npm i`
+3. Start backend `node server.js`
+4. Visit http://localhost:3000 (Ensure `.env` file is present in `backend` directory
 
 # Caution
 This application is not secure.
