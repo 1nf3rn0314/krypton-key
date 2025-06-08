@@ -205,7 +205,7 @@ const PassManager = () => {
                         </td>
                         <td className='p-1.5 border border-[#454545]'>
                           <div className='flex items-center justify-between'>
-                            <span>{row.password[0] + '\u2022'.repeat(row.password.length-1)}</span>
+                            <span>{'\u2022'.repeat(row.password.length)}</span>
                             <span className='material-symbols-rounded row-action-btn' onClick={() => { copyText(row.password) }}>content_copy</span>
                           </div>
                         </td>
