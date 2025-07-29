@@ -17,13 +17,18 @@ const app = express();
 app.use(express.json());
 app.use(cors(corsOptions));
 
-app.use(express.static(path.join(__dirname, '../frontend/dist')));
+// app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
 async function startServer() {
   try {
     await client.connect();
     const db = client.db(dbname);
     const colln = db.collection('passwords');
+
+    // Debug endpoint
+    app.get('/', (req, res) => {
+      res.send("API works ...");
+    });
 
     // Get all passwords
     app.get('/api/passwords', async (req, res) => {
