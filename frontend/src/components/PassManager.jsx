@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { ToastContainer, toast, Slide } from 'react-toastify'
 import { v4 as uuidv4 } from 'uuid';
 
+const backend_url = "https://krypton-key-api.vercel.app/";
+
 const PassManager = () => {
   const passRef = useRef()
   const eyeRef = useRef()
@@ -18,7 +20,7 @@ const PassManager = () => {
 
   useEffect(() => {
     async function getPasswords() {
-      let r = await fetch('http://localhost:3000/api/passwords')
+      let r = await fetch(backend_url + "api/passwords/")
       setPasswords(await r.json())
     }
     getPasswords()
@@ -52,7 +54,7 @@ const PassManager = () => {
         formData.id = uuidv4()
         newPasswords = [...passwords, formData]
         console.log(formData)
-        await fetch('http://localhost:3000/api/passwords', {
+        await fetch(backend_url + "api/passwords/", {
           method: "POST",
           body: JSON.stringify(formData),
           headers: {
@@ -63,7 +65,7 @@ const PassManager = () => {
         newPasswords = [...passwords]
         let index = newPasswords.findIndex(item => item.id === edit.id)
         newPasswords[index] = formData
-        await fetch('http://localhost:3000/api/passwords', {
+        await fetch(backend_url + "api/passwords/", {
           method: "PATCH",
           body: JSON.stringify(formData),
           headers: {
@@ -102,7 +104,7 @@ const PassManager = () => {
     if (confirm("Are you sure you want to delete the entry?")) {  
       let newPasswords = [...passwords].filter(item => item.id !== id);
       setPasswords(newPasswords)
-      await fetch('http://localhost:3000/api/passwords', {
+      await fetch(backend_url + "api/passwords/", {
         method: "DELETE",
         body: JSON.stringify({id}),
         headers: {
