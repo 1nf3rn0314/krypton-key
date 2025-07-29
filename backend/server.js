@@ -33,21 +33,21 @@ async function startServer() {
 
     // Insert a password
     app.post('/api/insert', async (req, res) => {
-      console.log(req.body);
+      // console.log(req.body);
       await colln.insertOne(req.body)
         .then(() => res.json({"inserted": true}));
     });
 
     // Delete a password
     app.delete('/delete', async (req, res) => {
-      console.log(req.body);
+      // console.log(req.body);
       await colln.deleteOne({id: req.body.id})
         .then(() => res.json({"deleted": true}));
     });
 
     // Update a password
     app.patch('/api/update', async (req, res) => {
-      console.log(req.body);
+      // console.log(req.body);
       await colln.updateOne({id: req.body.id}, {$set : {
         website: req.body.website,
         username: req.body.username,
@@ -56,7 +56,7 @@ async function startServer() {
     });
 
     app.listen(process.env.EXPRESS_PORT, () => {
-      console.log(`Listening on port ${process.env.EXPRESS_PORT}`);
+      console.log(`Port ${process.env.EXPRESS_PORT} is live ...`);
     });
 
   } catch (error) {
