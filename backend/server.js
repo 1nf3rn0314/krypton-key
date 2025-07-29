@@ -26,27 +26,27 @@ async function startServer() {
     const colln = db.collection('passwords');
 
     // Get all passwords
-    app.get('/api/get', async (req, res) => {
+    app.get('/api/passwords', async (req, res) => {
       const result = await colln.find({}).toArray();
       res.send(result);
     });
 
     // Insert a password
-    app.post('/api/insert', async (req, res) => {
+    app.post('/api/passwords', async (req, res) => {
       // console.log(req.body);
       await colln.insertOne(req.body)
         .then(() => res.json({"inserted": true}));
     });
 
     // Delete a password
-    app.delete('/delete', async (req, res) => {
+    app.delete('/api/passwords', async (req, res) => {
       // console.log(req.body);
       await colln.deleteOne({id: req.body.id})
         .then(() => res.json({"deleted": true}));
     });
 
     // Update a password
-    app.patch('/api/update', async (req, res) => {
+    app.patch('/api/passwords', async (req, res) => {
       // console.log(req.body);
       await colln.updateOne({id: req.body.id}, {$set : {
         website: req.body.website,
