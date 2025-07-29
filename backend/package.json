@@ -3,7 +3,6 @@
   "version": "1.0",
   "main": "server.js",
   "scripts": {
-    "postinstall": "cd ../frontend && npm install && npm run build",
     "start": "node server.js"
   },
   "keywords": [],
