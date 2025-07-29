@@ -11,7 +11,8 @@
 }
 
 a {
-  color: rgb(100, 159, 228);
+  color: red;
+  font-weight: 900;
 }
 
 @layer components {
